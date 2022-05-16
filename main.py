@@ -1,29 +1,32 @@
 # https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string/
 
 def filter(string):
+    if string == "":    # When there are no adjacent duplicates to start with.
+        return ""
+        
     for i in range(len(string)):
         try:
             if string[i] == string[i+1]:
-                return filter(string[:i] + string[i+2:])
-        except IndexError:
+                return filter(string[:i] + string[i+2:])    # Use recursion until there are no duplicates
+        except IndexError:    # This happens if we're on the last element... meaning no adjacent duplicates
             return string
-    
-    return string
 
 print(filter('abbaca'))
 print(filter('azxxzy'))
+print(filter('aaaaaaaa'))
 
 # ---- LeetCode Solution ----
 
 class Solution:
     def removeDuplicates(self, string: str) -> str:
+        if string == "":
+            return ""
+
         for i in range(len(string)):
             try:
                 if string[i] == string[i+1]:
                     return self.removeDuplicates(string[:i] + string[i+2:])
             except IndexError:
                 return string
-        
-        return string
 
-# NOTE: This passes 96/106 test cases.
+# NOTE: This passes 97/106 test cases.
