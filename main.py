@@ -7,8 +7,8 @@ def filter(string):
     for i in range(len(string)):
         try:
             if string[i] == string[i+1]:
-                return filter(string[:i] + string[i+2:])    # Use recursion until there are no duplicates
-        except IndexError:    # This happens if we're on the last element... meaning no adjacent duplicates
+                return filter(string[:i] + string[i+2:])    # edit string and call func until there are no duplicates
+        except IndexError:    # This happens if we're on the last element (no adjacent duplicates)
             return string
 
 print(filter('abbaca'))
