@@ -11,9 +11,9 @@ def filter(string):
         except IndexError:    # This happens if we're on the last element (no adjacent duplicates)
             return string
 
-print(filter('abbaca'))
-print(filter('azxxzy'))
-print(filter('aaaaaaaa'))
+print(filter('abbaca'))    #  -> 'ca'
+print(filter('azxxzy'))    # -> 'ay'
+print(filter('aaaaaaaaa'))    # -> 'a' (since there are 9 'a' characters, one would remain)
 
 # ---- LeetCode Solution ----
 
